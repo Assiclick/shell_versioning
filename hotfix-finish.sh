@@ -24,7 +24,7 @@ if [ -f version ]; then
     git merge --no-ff ${BRANCH}
 
     VERSION=PATCH
-    . ./shell/bump-version.sh
+    . ./shell_versioning/bump-version.sh
 
     git checkout develop
     git merge --no-ff ${BRANCH}
