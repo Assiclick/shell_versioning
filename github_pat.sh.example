@@ -1,0 +1,5 @@
+#!/bin/bash
+# Insert Personal Access Token
+# Scope: repo
+# https://github.com/settings/tokens
+GITHUB_PAT=
