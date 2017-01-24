@@ -1,6 +1,6 @@
 #!/bin/bash
-. ./shell/templates.sh
-. ./shell/github_pat.sh
+. ./shell_versioning/templates.sh
+. ./shell_versioning/github_pat.sh
 
 LATEST_HASH=`git log --pretty=format:'%h' -n 1`
 

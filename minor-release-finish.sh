@@ -1,6 +1,6 @@
 #!/bin/bash
-. ./shell/templates.sh
-. ./shell/github_pat.sh
+. ./shell_versioning/templates.sh
+. ./shell_versioning/github_pat.sh
 
 if [ -f version ]; then
     git checkout master
@@ -25,7 +25,7 @@ if [ -f version ]; then
     git merge --no-ff ${BRANCH}
 
     VERSION=MINOR
-    . ./shell/bump-version.sh
+    . ./shell_versioning/bump-version.sh
 
     git checkout develop
     git merge --no-ff ${BRANCH}

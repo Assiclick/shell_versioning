@@ -1,6 +1,6 @@
 #!/bin/bash
-. ./shell/templates.sh
-. ./shell/github_pat.sh
+. ./shell_versioning/templates.sh
+. ./shell_versioning/github_pat.sh
 
 if [ -f version ]; then
     git checkout master
