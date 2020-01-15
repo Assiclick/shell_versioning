@@ -1,6 +1,6 @@
 # Assiclick Shell Versioning Scripts
 
-These scripts are made to handle code [versioning](http://semver.org/spec/v2.0.0.html#semantic-versioning-200) and *CHANGELOG.md* updating.
+These scripts are made to handle code [versioning](http://semver.org/spec/v2.0.0.html#semantic-versioning-200) and *changelog.md* updating.
 
 > Note: You need a [Personal Access Token (PAT)](https://github.com/settings/tokens) to use these scripts. Duplicate [github_pat.sh.example](/shell_versioning/github_pat.sh.example), insert your PAT and rename it to *github_pat.sh*
 

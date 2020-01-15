@@ -4,7 +4,7 @@
 
 LATEST_HASH=`git log --pretty=format:'%h' -n 1`
 
-ADJUSTMENTS_MSG="${INFO_FLAG}Now you can ${UNDER}make adjustments${RESET}${INFO} to ${WHITE}CHANGELOG.md${INFO}. Then ${BOLD}press enter${RESET}${INFO} to continue."
+ADJUSTMENTS_MSG="${INFO_FLAG}Now you can ${UNDER}make adjustments${RESET}${INFO} to ${WHITE}changelog.md${INFO}. Then ${BOLD}press enter${RESET}${INFO} to continue."
 
 PUSHING_MSG="${NOTICE_FLAG}Pushing new version to the ${WHITE}origin${NOTICE}${BLINK}...${RESET}"
 
@@ -46,12 +46,12 @@ if [ -f version ]; then
     git log --pretty=format:"  - %s" "v$BASE_STRING"...HEAD >> tmpfile
     echo "" >> tmpfile
     echo "" >> tmpfile
-    cat CHANGELOG.md >> tmpfile
-    mv tmpfile CHANGELOG.md
+    cat changelog.md >> tmpfile
+    mv tmpfile changelog.md
     echo -e "$ADJUSTMENTS_MSG"
     read
     echo -e "$PUSHING_MSG"
-    git add CHANGELOG.md version
+    git add changelog.md version
     git commit -m "Bump version to ${INPUT_STRING}."
     git tag -a -m "Tag version v${INPUT_STRING}." "v$INPUT_STRING"
     git push --follow-tags
@@ -60,7 +60,7 @@ if [ -f version ]; then
   "tag_name": "'v$INPUT_STRING'",
   "target_commitish": "master",
   "name": "'v$INPUT_STRING'",
-  "body": "[Changelog](CHANGELOG.md)",
+  "body": "[Changelog](changelog.md)",
   "draft": false,
   "prerelease": false
 }' "https://api.github.com/repos/Assiclick/TestingPlace/releases" > /dev/null
@@ -75,15 +75,15 @@ else
     if [ "$RESPONSE" = "YES" ]; then RESPONSE="y"; fi
     if [ "$RESPONSE" = "y" ]; then
         echo "0.1.0" > version
-        echo "## 0.1.0 ($NOW)" > CHANGELOG.md
-        git log --pretty=format:"  - %s" >> CHANGELOG.md
-        echo "" >> CHANGELOG.md
-        echo "" >> CHANGELOG.md
+        echo "## 0.1.0 ($NOW)" > changelog.md
+        git log --pretty=format:"  - %s" >> changelog.md
+        echo "" >> changelog.md
+        echo "" >> changelog.md
         echo -e "$ADJUSTMENTS_MSG"
         read
         echo -e "$PUSHING_MSG"
-        git add version CHANGELOG.md
-        git commit -m "Add version and CHANGELOG.md files, Bump version to v0.1.0."
+        git add version changelog.md
+        git commit -m "Add version and changelog.md files, Bump version to v0.1.0."
         git tag -a -m "Tag version v0.1.0." "v0.1.0"
         git push --follow-tags
 
@@ -91,7 +91,7 @@ else
   "tag_name": "v0.1.0",
   "target_commitish": "master",
   "name": "v0.1.0",
-  "body": "[Changelog](CHANGELOG.md)",
+  "body": "[Changelog](changelog.md)",
   "draft": false,
   "prerelease": false
 }' "https://api.github.com/repos/Assiclick/TestingPlace/releases" > /dev/null
